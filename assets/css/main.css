@@ -21,6 +21,24 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.icons i {
+  transition: all 0.6s;
+  font-size: 1.2rem;
+}
+.icons i:hover {
+  color: #e15844;
+}
+
+button, i {
+  cursor: pointer;
+}
+
 #title {
   padding: 1rem 0;
   background-color: #f5f5f5;
@@ -35,19 +53,6 @@ body {
 #title .container p {
   font-size: 20px;
   color: #111;
-}
-#title .container .icons {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-#title .container .icons i {
-  transition: all 0.6s;
-  font-size: 1.2rem;
-}
-#title .container .icons i:hover {
-  color: #e15844;
 }
 @media only screen and (max-width: 767px) {
   #title .container {
@@ -105,7 +110,7 @@ header .header nav ul li a {
 header .header nav ul li a:hover {
   border-bottom: 1px solid black;
 }
-header .header .fa-solid.fa-bars {
+header .header .fa-solid {
   display: none;
   font-size: 2rem;
   color: #111;
@@ -114,13 +119,30 @@ header .header .fa-solid.fa-bars {
   header .header nav {
     display: none;
   }
-  header .header .fa-solid.fa-bars {
+  header .header nav.responsiveNav {
     display: block;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 10rem;
+    background-color: #fff;
+  }
+  header .header nav.responsiveNav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+  header .header .fa-solid {
+    display: block;
+    position: relative;
+    z-index: 3;
   }
 }
 
 #swiper {
-  margin-top: 4.5rem;
+  margin-top: 1rem;
 }
 #swiper .swiper {
   width: 100%;
@@ -160,13 +182,23 @@ header .header .fa-solid.fa-bars {
   transition: all 0.6s;
   background-color: #fff;
   border: 1px solid #e15844;
-  border-radius: 20px;
+  border-radius: 30px;
 }
 #swiper .swiper .swiper-slide .swiperBtn:hover {
   color: #fff;
   background-color: #e15844;
 }
+#swiper .swiper .swiper-button-next, #swiper .swiper .swiper-button-prev {
+  width: 70px;
+  height: 70px;
+  background-color: #363535;
+  border-radius: 50%;
+  color: #fff;
+}
 
+#products {
+  padding: 8rem 0;
+}
 #products .products {
   display: flex;
   align-items: center;
@@ -191,6 +223,7 @@ header .header .fa-solid.fa-bars {
 }
 #products .products .productsCard .card img {
   width: 90%;
+  height: 70%;
 }
 @media only screen and (max-width: 600px) {
   #products .products .productsCard {
@@ -226,16 +259,35 @@ header .header .fa-solid.fa-bars {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem;
-  align-items: end;
   background-image: url("../img/banner-08.jpg");
   height: 70vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 }
+#banner .banner .left .title p, #banner .banner .right .title p {
+  font-size: 30px;
+  font-weight: 500;
+}
+#banner .banner .left .title h1, #banner .banner .right .title h1 {
+  font-size: 50px;
+  font-weight: 800;
+}
 #banner .banner .right {
   background-image: url("../img/banner-05.jpg");
+  justify-content: end;
+  padding: 5rem;
+  flex-direction: column;
+  gap: 20px;
+}
+#banner .banner .right p {
+  font-size: 20px;
+}
+#banner .banner .right .boxs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 @media only screen and (max-width: 600px) {
   #banner .banner {
@@ -243,6 +295,200 @@ header .header .fa-solid.fa-bars {
   }
   #banner .banner .right, #banner .banner .left {
     width: 100%;
+  }
+}
+
+#products-2 {
+  padding: 8rem 0;
+}
+#products-2 .products-2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+}
+#products-2 .products-2 .productsCard {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+#products-2 .products-2 .productsCard .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+#products-2 .products-2 .productsCard .card img {
+  width: 100%;
+}
+#products-2 .products-2 .productsCard .card .img {
+  overflow: hidden;
+}
+#products-2 .products-2 .productsCard .card .img img {
+  transition: all 0.6s;
+}
+#products-2 .products-2 .productsCard .card .img img:hover {
+  transform: scale(1.1);
+}
+#products-2 .products-2 .productsCard .card h2 {
+  font-size: 20px;
+  transition: all 0.6s;
+}
+#products-2 .products-2 .productsCard .card h2:hover {
+  color: #e15844;
+}
+#products-2 .products-2 .productsCard .card h4 {
+  font-size: 16px;
+  opacity: 0.9;
+}
+#products-2 .products-2 .productsCard .card p {
+  font-size: 16px;
+  opacity: 0.8;
+}
+@media only screen and (max-width: 600px) {
+  #products-2 .products-2 .productsCard {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+.about {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.about .boxs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.about .boxs .box {
+  width: 100%;
+  height: 50vh;
+}
+.about .boxs .box img {
+  width: 100%;
+  height: 80%;
+}
+@media only screen and (max-width: 600px) {
+  .about .boxs {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .about .boxs .box img {
+    height: unset;
+  }
+}
+.about .aboutBottom {
+  padding: 3rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+}
+.about .aboutBottom .bottomBox {
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.about .aboutBottom .bottomBox.bottomBox-2 {
+  border-right: 1px solid rgb(53, 52, 52);
+  border-left: 1px solid rgb(53, 52, 52);
+}
+.about .aboutBottom .bottomBox p {
+  opacity: 0.8;
+  font-style: italic;
+}
+@media only screen and (max-width: 600px) {
+  .about .aboutBottom {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+footer {
+  background-color: #f0f0f0;
+  padding: 5rem 0;
+}
+footer h3 {
+  color: black;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+footer .footer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 30px;
+}
+footer .footer .contact {
+  width: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+  align-items: start;
+}
+footer .footer .contact p {
+  opacity: 0.8;
+  font-size: 20px;
+}
+footer .footer nav {
+  padding: 1rem;
+}
+footer .footer nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  align-items: start;
+  gap: 10px;
+}
+footer .footer nav ul li a {
+  color: #111;
+  transition: all 0.6s;
+  font-size: 20px;
+}
+footer .footer nav ul li a:hover {
+  color: #e15844;
+}
+footer .footer .email {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+footer .footer .email input {
+  width: 300px;
+  padding: 10px 20px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+}
+footer .footer .email .subscribe {
+  padding: 15px;
+  width: 200px;
+  border-radius: 20px;
+  border: 1px solid black;
+  background-color: #111;
+  color: #fff;
+  transition: all 0.7s;
+  font-size: 20px;
+  text-transform: uppercase;
+}
+footer .footer .email .subscribe:hover {
+  background-color: #e15844;
+  border: 1px solid transparent;
+}
+@media only screen and (max-width: 600px) {
+  footer .footer {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 
@@ -270,6 +516,9 @@ header .header .fa-solid.fa-bars {
   border: 1px solid blueviolet;
 }
 
+#form {
+  margin-bottom: 5rem;
+}
 #form .container {
   display: flex;
   align-items: center;
@@ -311,6 +560,9 @@ header .header .fa-solid.fa-bars {
   border: 1px solid blue;
 }
 
+#table {
+  margin-top: 3rem;
+}
 #table .container {
   display: flex;
   align-items: center;
@@ -355,4 +607,31 @@ header .header .fa-solid.fa-bars {
   color: green;
   background-color: transparent;
   border: 1px solid green;
+}
+
+#detail {
+  padding: 7rem 0;
+}
+#detail .details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+#detail .details .left {
+  width: 50%;
+}
+#detail .details .left img {
+  width: 100%;
+}
+#detail .details .right {
+  width: 50%;
+}
+@media only screen and (max-width: 600px) {
+  #detail .details {
+    flex-direction: column;
+  }
+  #detail .details .letf, #detail .details .right {
+    width: 100%;
+  }
 }/*# sourceMappingURL=main.css.map */
